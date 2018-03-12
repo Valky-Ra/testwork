@@ -7,12 +7,16 @@ html
     width: 100%;
     min-width: 1024px;
     font-size: 14px;
+    display: flex;
 }
 body
 {
     height: 100%;
     width: 100%;
     min-width: 1024px;
+    flex-direction: column;
+    min-height: 100vh;
+    display: flex;
 }
 body.servicespage
 {
@@ -41,7 +45,6 @@ div#menu ul
     list-style-type: none;
     margin: 0;
     padding: 0;
-    overflow: hidden;
 }
 div#menu li
 {
@@ -57,12 +60,14 @@ div#menu li a
     color: #000000;
     text-transform: uppercase;
 }
+#servicesheader{
+    flex-shrink: 0; /* IE11 fix */
+}
 #servicesheader ul
 {
     display:inline-block;
     list-style-type: none;
     margin: 4px 0 8px 79px; /*  margin-left: 79px, bottom: 8px; right: 0; top: 4px; */
-    overflow: hidden;
     vertical-align: bottom;
 }
 #servicesheader li
@@ -97,12 +102,14 @@ div#menu li a
 {
     width:800px;
     padding-left: 48px;
-    flex: 1;
+    flex: 1 0 auto;
 }
 
 #servicescontent p
 {
     color: #ffffff;
+    font-family: "Adobe Garamond Pro Bold", "Abril Fatface", serif;
+    align-self: stretch; /* IE11 fix as well */
 }
 #servicescontent .accordion
 {
@@ -118,10 +125,6 @@ div#menu li a
     display: block;
     font-family: "Adobe Garamond Pro Bold", "Times New Roman", serif;
 }
-#servicescontent p
-{
-    font-family: "Adobe Garamond Pro Bold", "Abril Fatface", serif;
-}
 #servicescontent .active
 {
     background-color: #ccc;
@@ -131,8 +134,8 @@ div#menu li a
 {
     padding: 0 18px;
     display: none;
-    overflow: hidden;
     transition: 0.4s ease-out;
+    align-self: stretch;
 }
 
 #servicescontent button.accordion
@@ -207,10 +210,10 @@ div#menu li a
     text-align: left;
     text-transform: uppercase;
     width: 100%;
-    bottom:0;
     color: #9b9b9b;
     padding-bottom: 27px;
     font-size: 11px;
+    flex-shrink: 0;
 }
 
 #servicesfooter a
@@ -237,7 +240,6 @@ div#footer
     text-align: center;
     text-transform: uppercase;
     width: 100%;
-    bottom:0;
     color: #9b9b9b;
     padding-bottom: 29px;
     font-size: 11px;
@@ -250,6 +252,11 @@ div#footer a
 ::-moz-selection {
     background: #b3d4fc;
     text-shadow: none;
+}
+@-moz-document url-prefix() {
+    #servicescontent{
+        flex-grow: 1;
+    }
 }
 
 ::selection {
