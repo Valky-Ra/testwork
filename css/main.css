@@ -1,4 +1,5 @@
-html {
+html
+{
     color: #222;
     line-height: 1.4;
     font-family: "Adobe Garamond Pro Bold", "Times New Roman", serif;
@@ -7,12 +8,14 @@ html {
     min-width: 1024px;
     font-size: 14px;
 }
-body {
+body
+{
     height: 100%;
     width: 100%;
     min-width: 1024px;
 }
-body.servicespage{
+body.servicespage
+{
     background: #000000 url("../img/background.jpg") no-repeat fixed center;
     background-size: cover;
     padding: 35px;
@@ -20,27 +23,63 @@ body.servicespage{
     min-height: 100vh;
     flex-direction: column;
 }
+
+img#logo
+{
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    margin-bottom: 26px;
+}
+div#menu
+{
+    text-align: center;
+    display: block;
+}
+div#menu ul
+{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+div#menu li
+{
+    display:inline;
+}
+div#menu li a
+{
+    display: inline-block;
+    text-align: center;
+    padding: 32px 28px;
+    text-decoration: none;
+    font-weight: bold;
+    color: #000000;
+    text-transform: uppercase;
+}
 #servicesheader ul
 {
     display:inline-block;
     list-style-type: none;
-    margin: 4px 0 8px 79px;
-/*  margin-left: 79px, bottom: 8px; right: 0; top: 4px; */
+    margin: 4px 0 8px 79px; /*  margin-left: 79px, bottom: 8px; right: 0; top: 4px; */
     overflow: hidden;
     vertical-align: bottom;
 }
 #servicesheader li
 {
-    display:inline;
+    display: inline-block;
+    position: relative;
+    width: auto;
+    margin-right: 26px;
 }
 #servicesheader li a
 {
+    width: auto;
     display: inline-block;
-    margin-right: 18px;
     padding-bottom: 5px;
-    padding-left: 5px;
+    padding-left: 3px;
     padding-top: 5px;
-    padding-right: 5px;
+    padding-right: 3px;
     text-align: center;
     text-decoration: none;
     font-weight: bold;
@@ -52,13 +91,13 @@ body.servicespage{
     color: #ffffff;
     border-bottom: 1px solid #ffffff;
     border-top: 1px solid #ffffff ;
+
 }
 #servicescontent
 {
     width:800px;
     padding-left: 48px;
     flex: 1;
-
 }
 
 #servicescontent p
@@ -87,27 +126,82 @@ body.servicespage{
 {
     background-color: #ccc;
 }
- #servicescontent .accordion:hover
-{
-    background-color: #cccccc;
-}
 
-#servicescontent .panel {
+#servicescontent .panel
+{
     padding: 0 18px;
     display: none;
     overflow: hidden;
-}
-#servicescontent .accordion:after {
-    content: '\02795'; /* Unicode character for "plus" sign (+) */
-    font-size: 13px;
-    color: #777;
-    float: left;
-    margin-right: 5px;
+    transition: 0.4s ease-out;
 }
 
-#servicescontent .active:after {
-    content: "\2796"; /* Unicode character for "minus" sign (-) */
+#servicescontent button.accordion
+{
+    background: url("../img/pluslogo.png") no-repeat left center;
+    padding-left: 24px;
+    font: bold italic 14pt "Adobe Garamond Pro Bold";
+    text-transform: lowercase;
 }
+#servicescontent button.active
+{
+    background: url("../img/minuslogo.png") no-repeat left center;
+    padding-left: 24px;
+    font: bold small-caps 14pt "Adobe Garamond Pro Bold";
+}
+
+#servicesheader li a::before
+{
+    top: 0;
+    -webkit-transform: translateY(-10px);
+    -moz-transform: translateY(-10px);
+    transform: translateY(-10px);
+}
+#servicesheader li a::after
+{
+    bottom: 0;
+    -webkit-transform: translateY(10px);
+    -moz-transform: translateY(10px);
+    transform: translateY(10px);
+}
+#servicesheader li a::before, #servicesheader li a::after
+{
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: #fff;
+    content: '';
+    opacity: 0;
+    -webkit-transition: opacity 0.3s, -webkit-transform 0.3s;
+    -moz-transition: opacity 0.3s, -moz-transform 0.3s;
+    transition: opacity 0.3s, transform 0.3s;
+    -webkit-transform: translateY(-10px);
+    -moz-transform: translateY(-10px);
+    transform: translateY(-10px);
+}
+
+*, ::after, ::before
+{
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+#servicesheader li a:hover, #servicesheader li a:focus
+{
+    color: #fff;
+}
+
+#servicesheader li a:hover::before,
+#servicesheader li a:focus::before,
+#servicesheader li a:hover::after,
+#servicesheader li a:focus::after
+{
+    opacity: 1;
+    -webkit-transform: translateY(0px);
+    -moz-transform: translateY(0px);
+    transform: translateY(0px);
+}
+
 #servicesfooter
 {
     text-align: left;
@@ -117,12 +211,10 @@ body.servicespage{
     color: #9b9b9b;
     padding-bottom: 27px;
     font-size: 11px;
-
 }
 
 #servicesfooter a
 {
-
     color: #9b9b9b;
 }
 div#header
@@ -139,43 +231,6 @@ div#header
     background: #000000;
     height: 66%;
 }
-div#pagebody{}
-img#logo
-{
-    margin-left: auto;
-    margin-right: auto;
-    display: block;
-    margin-bottom: 26px;
-}
-div#menu
-{
-    text-align: center;
-    display: block;
-}
-
-div#menu ul
-{
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-}
-div#menu li
-{
-    display:inline;
-}
-div#menu li a
-{
-    display: inline-block;
-    text-align: center;
-    padding: 32px 28px;
-    text-decoration: none;
-
-    font-weight: bold;
-    color: #000000;
-    text-transform: uppercase;
-
-}
 
 div#footer
 {
@@ -191,12 +246,7 @@ div#footer a
 {
     color: #9b9b9b;
 }
-
-
-
-
-
-
+/* Code from WebStorm Boilerplate */
 ::-moz-selection {
     background: #b3d4fc;
     text-shadow: none;
